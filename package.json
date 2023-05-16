@@ -1,0 +1,20 @@
+{
+  "name": "wdio-spotify-tests",
+  "version": "1.0.0",
+  "description": "Spotify tests in WebdriverIO",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "wdio": "wdio run ./wdio.conf.js"
+  },
+  "author": "Fernand Colcombet",
+  "dependencies": {
+    "@wdio/cli": "^8.8.8",
+    "webdriverio": "^8.8.8"
+  },
+  "devDependencies": {
+    "@wdio/local-runner": "^8.8.8",
+    "@wdio/mocha-framework": "^8.8.7",
+    "@wdio/selenium-standalone-service": "^8.8.7",
+    "@wdio/spec-reporter": "^8.8.7"
+  }
+}
