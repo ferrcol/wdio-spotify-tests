@@ -1,17 +1,16 @@
+const landingPage = require("../pageobjects/landingPage");
+const loginPage = require("../pageobjects/loginPage");
+
 const user = process.env.WDIO_user;
 const pass = process.env.WDIO_pass;
 
-describe('Spotify login', () => {
-    it('should login with valid credentials', async () => {
-        await browser.url(`/`)
+describe("Spotify login", () => {
+  it("should login with valid credentials", async () => {
+    await landingPage.navigate();
+    await landingPage.goToLoginPage();
 
-        await $('button[data-testid="login-button"]').click()
-        
-        await $('input#login-username').setValue(user)
-        await $('input#login-password').setValue(pass)
-        await $('button#login-button').click()
+    await loginPage.dologin(user, pass);
 
-        await expect($('[data-testid="user-widget-avatar"],[title="]')).toBeExisting()
-
-    })
-})
+    await landingPage.shouldHaveUser();
+  });
+});
