@@ -2,6 +2,8 @@ class LoginPage {
   get usernameInput() { return $("input#login-username") }
   get passwordInput() { return $("input#login-password") }
   get loginButton() { return $("button#login-button")  }
+  get bannerDiv() { return $('[data-encore-id="banner"]')}
+  get resetPassButton() { return $('[data-testid="reset-password-link"]')}
 
   navigate() {
     return browser.url(`/en/login`);
@@ -13,8 +15,12 @@ class LoginPage {
     await this.loginButton.click();
   }
 
+  async goToResetPassPage() {
+    await this.resetPassButton.click()
+  }
+
   shouldHaveErrorMsg(errorMsg) {
-    domEl.bannerDiv().should("include.text", errorMsg);
+    expect(this.bannerDiv).toHaveText(errorMsg)
   }
 }
 

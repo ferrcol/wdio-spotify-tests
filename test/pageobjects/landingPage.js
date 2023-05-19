@@ -1,14 +1,12 @@
 class LandingPage {
-  get loginButton() {
-    return $('button[data-testid="login-button"]');
-  }
+  get loginButton() { return $('button[data-testid="login-button"]') }
 
   navigate() {
     return browser.url(`/`);
   }
 
-  goToLoginPage() {
-    this.loginButton.click();
+  async goToLoginPage() {
+    await this.loginButton.click();
   }
 
   shouldHaveUser() {
