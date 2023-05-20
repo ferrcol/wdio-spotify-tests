@@ -1,5 +1,9 @@
 class LandingPage {
   get loginButton() { return $('button[data-testid="login-button"]') }
+  get userButton() { return $('button[data-testid="user-widget-link"]')} 
+  get userName() { return $('figure[data-testid="user-widget-avatar"]')}
+  get logoutButton() { return $('button[data-testid="user-widget-dropdown-logout"]') }
+
 
   navigate() {
     return browser.url(`/`);
@@ -9,8 +13,13 @@ class LandingPage {
     await this.loginButton.click();
   }
 
-  shouldHaveUser() {
-    expect(this.usernameLabel).toBeExisting();
+  async doLogout() {
+    await this.userButton.click()
+    await this.logoutButton.click()
+  }
+
+  async shouldHaveUser(user) {
+    await expect(this.userName).toHaveElementProperty('title',user)
   }
 }
 

@@ -19,8 +19,8 @@ class LoginPage {
     await this.resetPassButton.click()
   }
 
-  shouldHaveErrorMsg(errorMsg) {
-    expect(this.bannerDiv).toHaveText(errorMsg)
+  async shouldHaveErrorMsg(errorMsg) {
+    await expect(this.bannerDiv).toHaveText(errorMsg)
   }
 }
 

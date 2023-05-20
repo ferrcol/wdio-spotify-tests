@@ -1,7 +1,7 @@
 class ResetPage {
   get emailUsernameInput() {return $("input#email_or_username") }
   get sendButton() {return $("button.Button-qlcn5g-0")}
-  get headDiv() {return $('class*="PageHeading"]')}
+  get headDiv() {return $('[class*="PageHeading"]')}
 
   navigate() {
     return browser.url("/en/password-reset");
@@ -12,8 +12,8 @@ class ResetPage {
     await this.sendButton.click();
   }
 
-  shouldHaveResetMsg(message) {
-    expect(this.headDiv).toHaveText(message);
+  async shouldHaveResetMsg(message) {
+    await expect(this.headDiv).toHaveText(message);
   }
 }
 
