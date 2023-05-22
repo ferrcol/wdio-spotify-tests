@@ -5,9 +5,9 @@ const resetPage = require("../pageobjects/resetPage");
 const user = process.env.WDIO_user;
 const pass = process.env.WDIO_pass;
 
-describe(
-  "Spotify login",() => {
+describe("Spotify login",() => {
     beforeEach(async () => {
+      browser.reloadSession();
       await landingPage.navigate();
       await landingPage.goToLoginPage();
     });
@@ -15,8 +15,7 @@ describe(
     it("should login with valid credentials", async () => {
       await loginPage.dologin(user, pass);
       await landingPage.shouldHaveUser(user);
-      await landingPage.doLogout()
-      
+      await landingPage.doLogout();
     });
 
     it("should show an error for wrong user", async () => {
