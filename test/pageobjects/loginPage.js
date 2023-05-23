@@ -16,11 +16,11 @@ class LoginPage {
   }
 
   async goToResetPassPage() {
-    await this.resetPassButton.click()
+    await this.resetPassButton.click();
   }
 
   async shouldHaveErrorMsg(errorMsg) {
-    await expect(this.bannerDiv).toHaveText(errorMsg)
+    await expect(this.bannerDiv).toHaveText(errorMsg);
   }
 }
 
