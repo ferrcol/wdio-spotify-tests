@@ -7,7 +7,7 @@ const pass = process.env.WDIO_pass;
 
 describe("Spotify login",() => {
     beforeEach(async () => {
-      browser.reloadSession();
+      await browser.reloadSession();
       await landingPage.navigate();
       await landingPage.goToLoginPage();
     });

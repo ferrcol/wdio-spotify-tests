@@ -8,7 +8,7 @@ describe ("Spotify lists",() => {
 
     before( async () =>{
         await landingPage.navigate();
-        await $("#onetrust-accept-btn-handler").click()
+        await landingPage.acceptCookies();
         await landingPage.goToLoginPage();
         await loginPage.dologin(user, pass);
         await landingPage.shouldHaveUser(user);
